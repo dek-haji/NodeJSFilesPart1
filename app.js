@@ -3,13 +3,15 @@
 // log the request object to the console
 const http = require('http');
 const server = http.createServer((req, res) => {
-  console.log('Request received: ', req);
+  const url = req.url;
+  if (url === '/') {
   res.setHeader('Content-Type', 'text/html');
-  res.write('<html>');
+    res.write('<html>');
   res.write('<head><title>My First Page</title></head>');
-  res.write('<body><h1>Hello from my Node.js Server!</h1></body>');
+  res.write('<body><form Action="/message" method="POST"><input type="text" name="message"></form></body>');
   res.write('</html>');
   res.end();
+   };
 });
 server.listen(3000);
 // we learned how to create a server and listen to incoming requests
@@ -21,3 +23,4 @@ server.listen(3000);
 // we learned how to listen to incoming requests on a specific port
 // we learned how to send an HTML response to the client
 // we learned how to send a response with a status code
+
