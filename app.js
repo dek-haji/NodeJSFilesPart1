@@ -12,5 +12,4 @@ app.post('/properties', (req, res, next) => {
     res.redirect('/');
     res.send('<h1>Property added!</h1>');
  });
-
 app.listen(3000);
